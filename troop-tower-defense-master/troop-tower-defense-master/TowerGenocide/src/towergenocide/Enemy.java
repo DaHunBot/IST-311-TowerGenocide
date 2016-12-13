@@ -18,8 +18,8 @@ public class Enemy extends Rectangle {
     public boolean inGame = false;
     public int xC, yC;
     public int enemyWalk = 0;
-    public int left = 2;
-    public int direction = left;
+    public int right = 2;
+    public int direction = right;
     public static int enemyHealth = 52;
     public int healthSpace = 3;
     public int healthHeight = 6;
@@ -35,9 +35,10 @@ public class Enemy extends Rectangle {
         for (int y = 0; y < gameScreen.room.block.length; y++) {
             if (gameScreen.room.block[y][0].groundID == Value.groundRoad) {
                 setBounds(gameScreen.room.block[y][0].x, gameScreen.room.block[y][0].y, enemySize, enemySize);
-                x = 830;
-                xC = 0;
-                yC = 0;
+               // x = 830;
+               // xC = 0;
+               xC = 0;
+                yC = y;
             }
 
         }
@@ -49,7 +50,7 @@ public class Enemy extends Rectangle {
     public void deleteEnemy() {
         inGame = false;
         enemyWalk = 0;
-        enemyHealth = 52;
+        //enemyHealth = 52;
     }
 
     public void loseHealth() {
@@ -60,22 +61,22 @@ public class Enemy extends Rectangle {
 
     public void physic() {
         if (walkFrame >= walkSpeed) {
-            if (direction == left) {
-                x -= 1;
+            if (direction == right) {
+                x += 1;
             }
 
             enemyWalk += 1;
 
             if (enemyWalk == gameScreen.room.blockSize) {
-                if (direction == left) {
-                    xC -= 1;
+                if (direction == right) {
+                    xC += 1;
 
                 }
 
-                //   if (gameScreen.room.block[yC][xC].airID == Value.playerTower){
-                //   deleteEnemy();
-                //  loseHealth();
-                // }
+                   if (gameScreen.room.block[yC][xC].airID == Value.playerTower){
+                   deleteEnemy();
+                  loseHealth();
+                 }
                 enemyWalk = 0;
             }
 
@@ -108,7 +109,7 @@ public class Enemy extends Rectangle {
         }
     }
 
-    /*public boolean isDead() {
+    public boolean isDead() {
         if (inGame == true) {
             return true;
         } else {
@@ -116,7 +117,7 @@ public class Enemy extends Rectangle {
             return false;
         }
     }
-*/
+
     public void draw(Graphics g) {
         if (inGame == true) {
             g.drawImage(gameScreen.tileset_enemy[enemyID], x, y, width, height, null);

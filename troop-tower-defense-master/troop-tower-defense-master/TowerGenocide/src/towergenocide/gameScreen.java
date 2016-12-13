@@ -85,10 +85,10 @@ public class gameScreen extends JPanel implements Runnable, MouseListener, Mouse
           tileset_res[0] = new ImageIcon("src\\pics\\cell.png").getImage(); 
           tileset_res[1] = new ImageIcon("src\\pics\\health.png").getImage();
           tileset_res[2] = new ImageIcon("src\\pics\\cash.png").getImage();
-          tileset_enemy[0] = new ImageIcon("src\\pics\\enemyWalk.gif").getImage();
-          tileset_troops[4] = new ImageIcon("src\\pics\\troopWalk.gif").getImage();
+          tileset_enemy[0] = new ImageIcon("src\\pics\\troopWalk.gif").getImage();
+          tileset_troops[4] = new ImageIcon("src\\pics\\enemyWalk.gif").getImage();
           tileset_air[5] = new ImageIcon("src\\pics\\turret1.png").getImage();
-          tileset_air[6] = new ImageIcon("src\\pics\\turret1.png").getImage();
+          tileset_air[6] = new ImageIcon("src\\pics\\turret1Fire.gif").getImage();
           tileset_air[7] = new ImageIcon("src\\pics\\trash.png").getImage();
           tileset_air[8] = new ImageIcon("src\\pics\\Soldier1_default.png").getImage();
           

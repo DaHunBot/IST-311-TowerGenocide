@@ -55,7 +55,7 @@ public class gameBlock extends Rectangle {
 
     public void physic() {
 
-        if (shotEnemy != -1 && turretRange.contains(gameScreen.enemies[shotEnemy])) {
+        if (shotEnemy != -1 && turretRange.intersects(gameScreen.enemies[shotEnemy])) {
             shooting = true;
         } else {
             shooting = false;
@@ -88,10 +88,11 @@ public class gameBlock extends Rectangle {
                 if (gameScreen.enemies[shotEnemy].isDead) {
                     //getMoney(Screen.enemies[shotEnemy].enemyID);
                     //gameScreen.enemies[shotEnemy].inGame=false;
-                    System.out.println();
+                   // System.out.println(gameScreen.enemies[shotEnemy] + " is dead");
                     shooting = false;
                     shotEnemy = -1;
                 }
+                shotEnemy=-1;
             }
 
         
@@ -100,8 +101,9 @@ public class gameBlock extends Rectangle {
     public void fight(Graphics g) {
         // if(Screen.isDebug){
         if (airID == Value.turret1|| airID == Value.turret2){
-            turretRange = new Rectangle(x - (towerRangeSize / 30), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
-             g.drawRect(turretRange.x, turretRange.y, turretRange.width, turretRange.height);
+            //turretRange = new Rectangle(x - (towerRangeSize / 30), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
+            turretRange = new Rectangle(x - (towerRangeSize ), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
+            g.drawRect(turretRange.x, turretRange.y, turretRange.width, turretRange.height);
         }
 
         if (airID == Value.turret2) {
