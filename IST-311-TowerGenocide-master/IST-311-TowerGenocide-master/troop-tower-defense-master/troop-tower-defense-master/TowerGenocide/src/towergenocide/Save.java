@@ -7,33 +7,33 @@ package towergenocide;
 
 import java.io.*;
 import java.util.*;
+
 /**
  *
- * @author Tyler
+ * @author Tyler, David, Josh
  */
 public class Save {
-    public void loadSave(File loadPath){
+
+    public void loadSave(File loadPath) {
         try {
             Scanner loadScanner = new Scanner(loadPath);
-        
-            while (loadScanner.hasNext()){
-            for(int y=0; y < gameScreen.room.block.length; y++){
-                for(int x=0; x < gameScreen.room.block[0].length; x++){
-                    gameScreen.room.block[y][x].groundID = loadScanner.nextInt();
-              }
+
+            while (loadScanner.hasNext()) {
+                for (int y = 0; y < gameScreen.room.block.length; y++) {
+                    for (int x = 0; x < gameScreen.room.block[0].length; x++) {
+                        gameScreen.room.block[y][x].groundID = loadScanner.nextInt();
+                    }
+                }
+                for (int y = 0; y < gameScreen.room.block.length; y++) {
+                    for (int x = 0; x < gameScreen.room.block[0].length; x++) {
+                        gameScreen.room.block[y][x].airID = loadScanner.nextInt();
+                    }
+                }
+
             }
-            for(int y=0; y < gameScreen.room.block.length; y++){
-                for(int x=0; x < gameScreen.room.block[0].length; x++){
-                    gameScreen.room.block[y][x].airID = loadScanner.nextInt();
-              }
-            }
-            
-        }
-        loadScanner.close();
-    }
-        catch(Exception e) {
+            loadScanner.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 }
-

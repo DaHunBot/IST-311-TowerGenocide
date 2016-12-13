@@ -7,7 +7,7 @@ package towergenocide;
 
 /**
  *
- * @author Tyler
+ * @author Tyler, David, Josh
  */
 import java.awt.*;
 

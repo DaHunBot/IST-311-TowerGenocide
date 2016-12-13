@@ -9,7 +9,7 @@ import java.awt.*;
 
 /**
  *
- * @author Tyler
+ * @author Tyler, David, Josh
  */
 public class gameBlock extends Rectangle {
 
@@ -23,7 +23,7 @@ public class gameBlock extends Rectangle {
 
     public gameBlock(int x, int y, int width, int height, int groundID, int airID) {
         setBounds(x, y, width, height);
-        turretRange = new Rectangle(x - (towerRangeSize/10),y - (towerRangeSize/2),width + (towerRangeSize),height + (towerRangeSize));
+        turretRange = new Rectangle(x - (towerRangeSize / 10), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
         this.groundID = groundID;
         this.airID = airID;
 
@@ -70,51 +70,49 @@ public class gameBlock extends Rectangle {
                             shotEnemy = i;
 
                         }
-                   }
+                    }
                 }
             }
         }
 
-            if (shooting == true) {
-                if (loseFrame >= loseTime) {
-                    gameScreen.enemies[shotEnemy].losingHealth(2);
-                    // System.out.println(gameScreen.enemies[shotEnemy].enemyHealth);
-                    loseFrame = 0;
-                    // System.out.println(loseFrame);
-                } else {
-                    loseFrame += 1;
-                }
-
-                if (gameScreen.enemies[shotEnemy].isDead) {
-                    //getMoney(Screen.enemies[shotEnemy].enemyID);
-                    //gameScreen.enemies[shotEnemy].inGame=false;
-                   // System.out.println(gameScreen.enemies[shotEnemy] + " is dead");
-                    shooting = false;
-                    shotEnemy = -1;
-                }
-                shotEnemy=-1;
+        if (shooting == true) {
+            if (loseFrame >= loseTime) {
+                gameScreen.enemies[shotEnemy].losingHealth(2);
+                // System.out.println(gameScreen.enemies[shotEnemy].enemyHealth);
+                loseFrame = 0;
+                // System.out.println(loseFrame);
+            } else {
+                loseFrame += 1;
             }
 
-        
+            if (gameScreen.enemies[shotEnemy].isDead) {
+                //getMoney(Screen.enemies[shotEnemy].enemyID);
+                //gameScreen.enemies[shotEnemy].inGame=false;
+                // System.out.println(gameScreen.enemies[shotEnemy] + " is dead");
+                shooting = false;
+                shotEnemy = -1;
+            }
+            shotEnemy = -1;
+        }
+
     }
 
     public void fight(Graphics g) {
         // if(Screen.isDebug){
-        if (airID == Value.turret1|| airID == Value.turret2){
+        if (airID == Value.turret1 || airID == Value.turret2) {
             //turretRange = new Rectangle(x - (towerRangeSize / 30), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
-            turretRange = new Rectangle(x - (towerRangeSize ), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
+            turretRange = new Rectangle(x - (towerRangeSize), y - (towerRangeSize / 2), width + (towerRangeSize), height + (towerRangeSize));
             g.drawRect(turretRange.x, turretRange.y, turretRange.width, turretRange.height);
         }
 
         if (airID == Value.turret2) {
 
-             g.drawRect(turretRange.x , turretRange.y , turretRange.width , turretRange.height );
+            g.drawRect(turretRange.x, turretRange.y, turretRange.width, turretRange.height);
         }
 
-       //  if(shooting == true){
-       //      g.setColor(new Color(255,150,0));
-       //      g.drawLine(x+(width/2), y+(width/2), gameScreen.enemies[shotEnemy].x +(gameScreen.enemies[shotEnemy].width/2),gameScreen.enemies[shotEnemy].y + (gameScreen.enemies[shotEnemy].height/2));
-       //  }
-         
+        //  if(shooting == true){
+        //      g.setColor(new Color(255,150,0));
+        //      g.drawLine(x+(width/2), y+(width/2), gameScreen.enemies[shotEnemy].x +(gameScreen.enemies[shotEnemy].width/2),gameScreen.enemies[shotEnemy].y + (gameScreen.enemies[shotEnemy].height/2));
+        //  }
     }
 }

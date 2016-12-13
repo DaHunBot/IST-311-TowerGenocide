@@ -4,18 +4,19 @@
  * and open the template in the editor.
  */
 package towergenocide;
+
 import java.io.IOException;
+
 /**
  *
  * @author David Huynh, Tyler Miko, Josh
  */
-public class TowerGenocide 
-{
+public class TowerGenocide {
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws IOException
-    {
+    public static void main(String[] args) throws IOException {
         GameWindow game = new GameWindow();
     }
 }

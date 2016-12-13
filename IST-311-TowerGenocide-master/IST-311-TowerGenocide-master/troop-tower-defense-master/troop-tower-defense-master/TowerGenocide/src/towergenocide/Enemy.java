@@ -9,7 +9,7 @@ import java.awt.*;
 
 /**
  *
- * @author Tyler
+ * @author Tyler, David, Josh
  */
 public class Enemy extends Rectangle {
 
@@ -35,9 +35,9 @@ public class Enemy extends Rectangle {
         for (int y = 0; y < gameScreen.room.block.length; y++) {
             if (gameScreen.room.block[y][0].groundID == Value.groundRoad) {
                 setBounds(gameScreen.room.block[y][0].x, gameScreen.room.block[y][0].y, enemySize, enemySize);
-               // x = 830;
-               // xC = 0;
-               xC = 0;
+                // x = 830;
+                // xC = 0;
+                xC = 0;
                 yC = y;
             }
 
@@ -73,10 +73,10 @@ public class Enemy extends Rectangle {
 
                 }
 
-                   if (gameScreen.room.block[yC][xC].airID == Value.playerTower){
-                   deleteEnemy();
-                  loseHealth();
-                 }
+                if (gameScreen.room.block[yC][xC].airID == Value.playerTower) {
+                    deleteEnemy();
+                    loseHealth();
+                }
                 enemyWalk = 0;
             }
 
@@ -91,7 +91,7 @@ public class Enemy extends Rectangle {
     }
 
     public void losingHealth(int damage) {
-        enemyHealth -= damage;
+        this.enemyHealth -= damage;
 
         checkDeath();
     }
@@ -105,7 +105,7 @@ public class Enemy extends Rectangle {
             gameScreen.money += value;
 
         } else {
-           // isDead = false;
+            // isDead = false;
         }
     }
 
